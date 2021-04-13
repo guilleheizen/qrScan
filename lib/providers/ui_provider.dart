@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class UiProvider extends ChangeNotifier{
+class UiProvider extends ChangeNotifier {
   int _selectedMenuOpt = 0;
 
-  int get selectedMenuOpt { return this._selectedMenuOpt; }
+  int get selectedMenuOpt {
+    return this._selectedMenuOpt;
+  }
 
-  set selectedMenuOpt(int i){
+  set selectedMenuOpt(int i) {
     this._selectedMenuOpt = i;
     notifyListeners();
   }
-
 }
-
