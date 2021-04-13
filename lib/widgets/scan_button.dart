@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 
 class ScanButton extends StatelessWidget {
@@ -13,8 +13,8 @@ class ScanButton extends StatelessWidget {
       onPressed: () async {
         
         
-        // String barcodeScanRes = await FlutterBarcodeScanner.scanBarcode("#ff0000", "Cancelar", false, ScanMode.QR);
-        String barcodeScanRes = 'https://www.megaeletronicos.com';
+        String barcodeScanRes = await FlutterBarcodeScanner.scanBarcode("#ff0000", "Cancelar", false, ScanMode.QR);
+        // String barcodeScanRes = 'https://www.megaeletronicos.com';
         print(barcodeScanRes);
 
       }
