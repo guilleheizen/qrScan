@@ -20,7 +20,7 @@ class CustomNavigationBar extends StatelessWidget {
             label: 'Mapa',
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.location_city), label: 'Direcciones'),
+              icon: Icon(Icons.link_outlined), label: 'Webs'),
         ]);
   }
 }

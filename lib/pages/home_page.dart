@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import 'package:qrscan/pages/direcciones_page.dart';
 import 'package:qrscan/pages/mapas_page.dart';
+import 'package:qrscan/providers/scan_list_provider.dart';
 
 import 'package:qrscan/providers/ui_provider.dart';
 
@@ -14,12 +15,15 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         title: Text('Historial'),
         actions: [
-          IconButton(icon: Icon(Icons.delete_forever), onPressed: () {}),
+          IconButton(icon: Icon(Icons.delete_forever), onPressed: () =>
+            Provider.of<ScanListProvider>(context, listen: false).borrarTodos()
+          ),
         ],
       ),
       body: _HomePageBody(),
@@ -37,13 +41,16 @@ class _HomePageBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final uiProvider = Provider.of<UiProvider>(context);
     final currentIndex = uiProvider.selectedMenuOpt;
-
+    final scanListProvider =  Provider.of<ScanListProvider>(context, listen: false);
     switch (currentIndex) {
       case 0:
+        scanListProvider.cargarScanPorTipo('geo');
         return MapasPage();
       case 1:
+        scanListProvider.cargarScanPorTipo('http');
         return DireccionesPage();
       default:
+        scanListProvider.cargarScanPorTipo('geo');
         return MapasPage();
     }
   }
